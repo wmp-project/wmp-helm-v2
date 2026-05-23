@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appName }}
+  labels:
+    appName: {{ .Values.appName }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      appName: {{ .Values.appName }}
+  template:
+    metadata:
+      labels:
+        appName: {{ .Values.appName }}
+    spec:
+      serviceAccountName: {{ .Values.appName }}
+      volumes:
+      - name: params
+        emptyDir: {}
+      initContainers:
+      - name: ssm-pull
+        image: 349558942960.dkr.ecr.us-east-1.amazonaws.com/ssm-pull:latest
+        imagePullPolicy: Always
+        env:
+          - name: PARAMS
+            value: {{ .Values.PARAMS }}
+          - name: SERVICE_NAME
+            value: {{ .Values.appName }}
+        volumeMounts:
+        - name: params
+          mountPath: /data
+      containers:
+      - name: {{ .Values.appName }}
+        image: 349558942960.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.image_tag }}
+        volumeMounts:
+        - name: params
+          mountPath: /data
+

@@ -1,0 +1,14 @@
+appName: auth-service
+appPort: 8081
+serviceType: ClusterIP
+config_values:
+  DB_HOST: "wmp-dev.ckxcecc86yw5.us-east-1.rds.amazonaws.com"
+  DB_PORT: "5432"
+  DB_USER: "auth_svc_user"
+  DB_PASSWORD: "localdev123"
+  DB_NAME: "wmp"
+  DB_SCHEMA: "auth_schema"
+  SERVER_PORT: "8081"
+  JWT_SECRET: "myDefaultSuperSecretKeyThatIsAtLeast256BitsLongForHS256Algorithm"
+  PORTFOLIO_SERVICE_URL: "http://portfolio-service:8080"
+

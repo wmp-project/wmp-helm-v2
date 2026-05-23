@@ -1,0 +1,8 @@
+appName: frontend
+appPort: 80
+serviceType: ClusterIP
+config_values:
+  test: test
+
+ingress:
+  enabled: true

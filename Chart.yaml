@@ -1,0 +1,3 @@
+apiVersion: v2
+name: WMP Project Helm Chart
+version: 1.0.0

@@ -1,0 +1,11 @@
+appName: portfolio-service
+appPort: 8080
+serviceType: ClusterIP
+config_values:
+  SPRING_PROFILES_ACTIVE: "production"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://wmp-dev.ckxcecc86yw5.us-east-1.rds.amazonaws.com:5432/wmp?currentSchema=portfolio_schema"
+  SPRING_DATASOURCE_USERNAME: "portfolio_svc_user"
+  SPRING_DATASOURCE_PASSWORD: "localdev123"
+  JWT_SECRET: "myDefaultSuperSecretKeyThatIsAtLeast256BitsLongForHS256Algorithm"
+  SERVER_PORT: "8080"
+
