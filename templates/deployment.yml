@@ -37,4 +37,8 @@ spec:
         - name: params
           mountPath: /data
         env:
-          {{ toYaml .Values.config_values | nindent 12 }}
+{{- range $key, $value := .Values.config_values }}
+          - name: {{ $key }}
+            value: {{ $value | quote }}
+{{- end }}
+   
