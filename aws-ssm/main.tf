@@ -19,7 +19,7 @@ variable "inputs" {
     {
       name  = "/analytics-service/DATABASE_URL"
       type  = "SecureString"
-      value = "postgresql+asyncpg://analytics_svc_user:localdev123@wmp-dev.cbvsckxcecc86yw5beoyxek4.us-east-1.rds.amazonaws.com:5432/wmp"
+      value = "postgresql+asyncpg://analytics_svc_user:localdev123@wmp-dev.ckxcecc86yw5.us-east-1.rds.amazonaws.com:5432/wmp"
     },
     {
       name  = "/analytics-service/DB_SCHEMA"

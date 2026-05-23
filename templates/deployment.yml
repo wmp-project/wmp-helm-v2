@@ -36,4 +36,5 @@ spec:
         volumeMounts:
         - name: params
           mountPath: /data
-
+        env:
+          {{ toYaml .Values.config_values | nindent 12 }}
